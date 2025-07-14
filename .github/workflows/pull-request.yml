@@ -1,0 +1,123 @@
+name: Pull Request Checks
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  pr-info:
+    name: PR Information
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: PR Details
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            console.log(`PR #${pr.number}: ${pr.title}`);
+            console.log(`Author: ${pr.user.login}`);
+            console.log(`Base: ${pr.base.ref} <- Head: ${pr.head.ref}`);
+            console.log(`Files changed: ${pr.changed_files}`);
+
+  quick-checks:
+    name: Quick Quality Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check for syntax errors
+        run: npm run compile
+
+      - name: Run linting
+        run: npm run lint
+        continue-on-error: true
+
+      - name: Run tests
+        run: npm test
+
+  size-check:
+    name: Contract Size Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Compile contracts
+        run: npm run compile
+
+      - name: Check contract sizes
+        run: |
+          echo "Contract Sizes:"
+          find artifacts/contracts -name "*.json" ! -name "*.dbg.json" -exec sh -c '
+            for file; do
+              name=$(basename "$file" .json)
+              size=$(jq -r ".deployedBytecode" "$file" | wc -c)
+              kb=$((size / 2 / 1024))
+              echo "$name: ${kb}KB"
+              if [ $kb -gt 24 ]; then
+                echo "⚠️  Warning: $name exceeds 24KB limit"
+              fi
+            done
+          ' sh {} +
+
+  pr-summary:
+    name: PR Summary
+    runs-on: ubuntu-latest
+    needs: [quick-checks, size-check]
+    if: always()
+
+    steps:
+      - name: Comment PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const quickChecks = '${{ needs.quick-checks.result }}';
+            const sizeCheck = '${{ needs.size-check.result }}';
+
+            let body = '## PR Check Results\n\n';
+            body += `- Quick Checks: ${quickChecks === 'success' ? '✅' : '❌'}\n`;
+            body += `- Size Check: ${sizeCheck === 'success' ? '✅' : '❌'}\n`;
+
+            if (quickChecks === 'success' && sizeCheck === 'success') {
+              body += '\n✅ All checks passed! Ready for review.';
+            } else {
+              body += '\n❌ Some checks failed. Please review the errors above.';
+            }
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
