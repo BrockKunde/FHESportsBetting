@@ -1,0 +1,25 @@
+plugins:
+  - prettier-plugin-solidity
+
+printWidth: 120
+tabWidth: 2
+useTabs: false
+semi: true
+singleQuote: false
+trailingComma: "es5"
+bracketSpacing: true
+arrowParens: "always"
+endOfLine: "lf"
+
+overrides:
+  - files: "*.md"
+    options:
+      proseWrap: "always"
+
+  - files: "*.sol"
+    options:
+      compiler: "0.8.24"
+      parser: "solidity-parse"
+      tabWidth: 4
+      printWidth: 120
+      explicitTypes: "always"
