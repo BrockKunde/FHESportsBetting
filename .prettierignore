@@ -1,0 +1,13 @@
+node_modules/
+artifacts/
+cache/
+coverage/
+typechain-types/
+dist/
+*.md
+package-lock.json
+*.log
+.env
+.env.*
+deployments/
+README.md.backup
