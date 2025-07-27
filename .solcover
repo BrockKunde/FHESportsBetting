@@ -1,0 +1,25 @@
+module.exports = {
+  skipFiles: [
+    "test/",
+    "mock/",
+  ],
+  istanbulReporter: ["html", "lcov", "text", "json"],
+  mocha: {
+    timeout: 40000,
+    grep: "@skip-on-coverage",
+    invert: true,
+  },
+  providerOptions: {
+    mnemonic: "test test test test test test test test test test test junk",
+  },
+  solcOptimizerDetails: {
+    peephole: false,
+    inliner: false,
+    jumpdestRemover: false,
+    orderLiterals: true,
+    deduplicate: false,
+    cse: false,
+    constantOptimizer: false,
+    yul: true,
+  },
+};
