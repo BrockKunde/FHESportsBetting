@@ -1,0 +1,73 @@
+{
+  "name": "confidential-sports-betting",
+  "version": "1.0.0",
+  "description": "Confidential Sports Betting Platform with Fully Homomorphic Encryption",
+  "main": "index.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "test:gas": "npx hardhat test test/gas-benchmark.test.js",
+    "test:sepolia": "npx hardhat test --network sepolia",
+    "node": "npx hardhat node",
+    "deploy:sepolia": "npx hardhat run scripts/deploy.js --network sepolia",
+    "deploy:mainnet": "npx hardhat run scripts/deploy.js --network mainnet",
+    "deploy:localhost": "npx hardhat run scripts/deploy.js --network localhost",
+    "verify:sepolia": "npx hardhat run scripts/verify.js --network sepolia",
+    "verify:mainnet": "npx hardhat run scripts/verify.js --network mainnet",
+    "interact:sepolia": "npx hardhat run scripts/interact.js --network sepolia",
+    "interact:localhost": "npx hardhat run scripts/interact.js --network localhost",
+    "simulate": "npx hardhat run scripts/simulate.js --network localhost",
+    "clean": "npx hardhat clean",
+    "coverage": "npx hardhat coverage",
+    "lint": "npm run lint:sol && npm run lint:js && npm run prettier:check",
+    "lint:sol": "solhint 'contracts/**/*.sol'",
+    "lint:js": "eslint '**/*.js'",
+    "lint:fix": "npm run lint:sol:fix && npm run lint:js:fix && npm run prettier:write",
+    "lint:sol:fix": "solhint 'contracts/**/*.sol' --fix",
+    "lint:js:fix": "eslint '**/*.js' --fix",
+    "prettier:check": "prettier --check '**/*.{js,json,md,sol,yml}'",
+    "prettier:write": "prettier --write '**/*.{js,json,md,sol,yml}'",
+    "format": "npm run prettier:write",
+    "security:audit": "node scripts/security-audit.js",
+    "gas:analyze": "node scripts/gas-analysis.js",
+    "gas:report": "REPORT_GAS=true npm test",
+    "prepare": "node -e \"try { require('husky').install() } catch (e) { if (e.code !== 'MODULE_NOT_FOUND') throw e }\"",
+    "precommit": "npm run lint && npm test"
+  },
+  "keywords": [
+    "blockchain",
+    "ethereum",
+    "hardhat",
+    "fhe",
+    "fhevm",
+    "sports-betting",
+    "privacy",
+    "solidity",
+    "smart-contracts",
+    "confidential-computing",
+    "security",
+    "gas-optimization"
+  ],
+  "author": "Developer",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "hardhat": "^2.19.0",
+    "hardhat-gas-reporter": "^2.0.0",
+    "solidity-coverage": "^0.8.5",
+    "chai": "^4.3.10",
+    "ethers": "^6.9.0",
+    "eslint": "^8.55.0",
+    "solhint": "^4.0.0",
+    "prettier": "^3.1.0",
+    "prettier-plugin-solidity": "^1.2.0",
+    "husky": "^8.0.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  }
+}
