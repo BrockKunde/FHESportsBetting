@@ -1,317 +1,423 @@
 # Confidential Sports Betting Platform
 
-A privacy-first sports betting platform built with Fully Homomorphic Encryption (FHE) technology, enabling completely confidential wagering on the blockchain.
+A privacy-preserving sports betting platform powered by Fully Homomorphic Encryption (FHE), enabling completely confidential wagering on the blockchain.
 
-## 🔐 Core Concept
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-brightgreen)](https://fhe-sports-betting.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com/BrockKunde/FHESportsBetting)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
-This platform leverages **Fully Homomorphic Encryption (FHE)** to create a trustless, privacy-preserving sports betting experience. Unlike traditional betting platforms, all bet amounts, predictions, and user data remain encrypted on-chain, ensuring complete confidentiality while maintaining the transparency and security of blockchain technology.
+## 🌐 Links
 
-### Key Features
+- **Live Application**: [https://fhe-sports-betting.vercel.app/](https://fhe-sports-betting.vercel.app/)
+- **GitHub Repository**: [https://github.com/BrockKunde/FHESportsBetting](https://github.com/BrockKunde/FHESportsBetting)
+- **Contract on Etherscan**: [0xB539bf7D5960087A2742B8Fd2DceA8aE86E6E516](https://sepolia.etherscan.io/address/0xB539bf7D5960087A2742B8Fd2DceA8aE86E6E516)
 
-- **Private Betting**: All wagers and predictions are encrypted using FHE, protecting user privacy
-- **Confidential Odds**: Betting odds and pool sizes remain encrypted until match settlement
-- **Secure Rewards**: Automated reward distribution through encrypted smart contracts
-- **Zero-Knowledge Verification**: Verify wins without revealing bet details
-- **On-Chain Privacy**: Complete transaction privacy while maintaining blockchain immutability
+## 🔐 Core Concept: FHE Contract Confidential Sports Betting
 
-## 🎯 How It Works
+This platform revolutionizes sports betting by implementing **Fully Homomorphic Encryption (FHE)** directly in smart contracts, creating a **hidden privacy sports prediction platform** where all sensitive data remains encrypted on-chain.
 
-1. **Match Creation**: Operators create encrypted betting markets for upcoming sports events
-2. **Place Bets**: Users submit encrypted bets on match outcomes (win/lose, over/under, handicap)
-3. **Encrypted Processing**: All calculations happen on encrypted data without decryption
-4. **Match Settlement**: Oracle submits results, contracts calculate payouts on encrypted values
-5. **Claim Winnings**: Winners receive payouts automatically with full privacy protection
+### What is FHE Contract Confidential Betting?
 
-## 🏆 Supported Bet Types
+Traditional betting platforms expose bet amounts, user predictions, and betting patterns on the blockchain. Our platform uses **FHE smart contracts** to ensure:
 
-- **Win/Lose/Draw**: Predict the match outcome
-- **Over/Under**: Total goals/points threshold betting
-- **Handicap Betting**: Encrypted handicap wagering
-- **Loyalty Rewards**: Privacy-preserving reward system for active bettors
+- **Encrypted Predictions**: Your bet choices remain completely hidden until match settlement
+- **Private Amounts**: Bet sizes are encrypted on-chain, protecting betting strategies
+- **Confidential Computations**: Smart contracts calculate odds, pools, and payouts on encrypted data without ever decrypting it
+- **Trustless Privacy**: No centralized party can see your betting activity, yet results are verifiable on-chain
 
-## 📡 Smart Contract
+### How FHE Transforms Sports Betting
+
+```
+Traditional Betting:          FHE Confidential Betting:
+┌─────────────────┐          ┌─────────────────┐
+│ Bet: Team A     │          │ Bet: [ENCRYPTED]│
+│ Amount: 1 ETH   │    →     │ Amount: [ENC]   │
+│ PUBLIC ❌       │          │ PRIVATE ✅      │
+└─────────────────┘          └─────────────────┘
+```
+
+## 🎯 Core Concept: Hidden Privacy Sports Prediction Platform
+
+This is a **hidden privacy sports prediction platform** (机密体育竞猜平台) where:
+
+### Privacy Features
+
+1. **Encrypted Predictions**
+   - All bet predictions are encrypted using FHE before submission
+   - Nobody, including platform operators, can see your predictions
+   - Predictions remain hidden until match completion
+
+2. **Confidential Betting Pools**
+   - Pool sizes are calculated on encrypted values
+   - Individual contributions remain private
+   - Only aggregate encrypted totals are visible
+
+3. **Private Payout Calculations**
+   - Winners are determined through encrypted computations
+   - Payout amounts calculated on encrypted data
+   - Only winners can decrypt their rewards
+
+4. **Anonymous Participation**
+   - No KYC required for betting
+   - Wallet addresses are the only identifier
+   - Betting patterns remain confidential
+
+### FHE Technology Advantages
+
+**Fully Homomorphic Encryption (FHE)** enables computations on encrypted data:
+
+- ✅ **Complete Privacy**: Data never decrypted during processing
+- ✅ **Verifiable Results**: Outcomes provable on-chain
+- ✅ **Trustless System**: No trusted third party needed
+- ✅ **Regulatory Friendly**: Enhanced privacy compliance
+- ✅ **Fair Competition**: Hidden strategies prevent manipulation
+
+## 🏆 Betting Types & Features
+
+### Supported Bet Types
+
+1. **Win/Lose/Draw** - Predict the match outcome with encrypted choices
+2. **Over/Under** - Total score predictions with confidential thresholds
+3. **Handicap Betting** - Encrypted handicap values for fair competition
+4. **Loyalty Rewards** - Privacy-preserving rewards for active bettors
+
+### Platform Features
+
+- **Real-time Match Listings**: View upcoming sports events
+- **Encrypted Bet Placement**: Submit predictions with full privacy
+- **Confidential Pool Management**: Join betting pools anonymously
+- **Automatic Payouts**: Smart contract-based distribution to winners
+- **Private History**: Track your bets with encrypted records
+- **Reward System**: Earn loyalty rewards without exposing betting patterns
+
+## 📡 Smart Contract Architecture
+
+### Deployed Contract
 
 **Contract Address**: `0xB539bf7D5960087A2742B8Fd2DceA8aE86E6E516`
 
 **Network**: Ethereum Sepolia Testnet
 
-The smart contract implements FHE operations using the fhEVM framework, enabling:
-- Encrypted bet storage and processing
-- Private odds calculations
-- Confidential pool management
-- Secure payout distribution
+**View on Etherscan**: [Contract Link](https://sepolia.etherscan.io/address/0xB539bf7D5960087A2742B8Fd2DceA8aE86E6E516)
 
-**View on Etherscan**: [https://sepolia.etherscan.io/address/0xB539bf7D5960087A2742B8Fd2DceA8aE86E6E516](https://sepolia.etherscan.io/address/0xB539bf7D5960087A2742B8Fd2DceA8aE86E6E516)
+### FHE Contract Components
 
-## 🚀 Development & Deployment
+```solidity
+// Encrypted bet structure
+struct Bet {
+    uint256 amount;                    // Bet amount
+    BetType betType;                   // Type of bet
+    euint8 encryptedPrediction;        // FHE encrypted prediction
+    uint256 timestamp;                 // Bet timestamp
+    uint8 flags;                       // Status flags
+}
+
+// Encrypted match betting data
+struct MatchBetting {
+    uint256 totalHomeBets;             // Total home team bets
+    uint256 totalAwayBets;             // Total away team bets
+    euint8 targetTotal;                // Encrypted target total
+    euint8 handicapValue;              // Encrypted handicap
+    bool scoresRevealed;               // Result status
+}
+```
+
+### Key Contract Functions
+
+- `placeBet()` - Submit encrypted bet predictions
+- `finishMatch()` - Settle match with results (oracle only)
+- `claimWinnings()` - Claim encrypted payouts
+- `createMatch()` - Create new betting markets
+- `getMatchStatus()` - View match and pool information
+
+## 🎬 Demo & Tutorial
+
+### Video Demonstration
+
+**📥 Download Required**: The demo video (`demo.mp4`) must be downloaded to view as it cannot be played directly in browsers.
+
+**[Download demo.mp4](./demo.mp4)**
+
+The video demonstrates:
+1. Connecting wallet to the platform
+2. Viewing available matches and betting options
+3. Placing an encrypted bet with FHE
+4. Monitoring encrypted betting pools
+5. Claiming winnings after match settlement
+6. Complete privacy workflow from bet to payout
+
+### Live Platform
+
+**Experience it live**: [https://fhe-sports-betting.vercel.app/](https://fhe-sports-betting.vercel.app/)
+
+Features:
+- Connect MetaMask wallet
+- View active sports matches
+- Place confidential bets
+- Monitor encrypted pools
+- Claim winnings privately
+
+## 🚀 Quick Start
 
 ### Prerequisites
 
-- Node.js v18+ and npm
-- Hardhat development environment
-- Ethereum wallet with testnet ETH
+- Node.js v18 or higher
+- npm package manager
+- MetaMask or compatible Web3 wallet
+- Sepolia testnet ETH ([Get from faucet](https://sepoliafaucet.com))
 
 ### Installation
 
 ```bash
 # Clone the repository
-git clone <repository-url>
-cd <project-directory>
+git clone https://github.com/BrockKunde/FHESportsBetting.git
+cd FHESportsBetting
 
 # Install dependencies
 npm install
 
 # Configure environment
 cp .env.example .env
-# Edit .env with your credentials
+# Edit .env with your settings
 ```
 
-### Configuration
+### Environment Configuration
 
-Create a `.env` file with the following variables:
+Create `.env` file:
 
 ```env
+# Network Configuration
 SEPOLIA_RPC_URL=https://sepolia.infura.io/v3/YOUR_PROJECT_ID
 MAINNET_RPC_URL=https://mainnet.infura.io/v3/YOUR_PROJECT_ID
-PRIVATE_KEY=your_private_key_without_0x_prefix
+
+# Deployment
+PRIVATE_KEY=your_private_key_here
 ETHERSCAN_API_KEY=your_etherscan_api_key
+
+# Settings
 REPORT_GAS=false
 ```
 
-### Compilation
+### Compile Contracts
 
 ```bash
 # Compile smart contracts
 npx hardhat compile
 ```
 
-Compiler Configuration:
-- Solidity version: 0.8.24
-- Optimizer enabled (200 runs)
-- EVM version: Cancun
-- Via IR compilation for better optimization
+Compiler settings:
+- Solidity: 0.8.24
+- Optimizer: Enabled (200 runs)
+- EVM Version: Cancun
+- Via IR: Enabled
 
-### Testing
+### Run Tests
 
 ```bash
-# Run all tests
+# Execute test suite
 npx hardhat test
 
 # Run with gas reporting
 REPORT_GAS=true npx hardhat test
 
-# Start local Hardhat node
-npx hardhat node
-
-# Run simulation on local network
-npx hardhat run scripts/simulate.js --network localhost
+# Run coverage
+npm run coverage
 ```
 
-### Deployment
-
-#### Deploy to Sepolia Testnet
+### Deploy Contracts
 
 ```bash
-# Deploy contracts
+# Deploy to Sepolia testnet
 npx hardhat run scripts/deploy.js --network sepolia
 
 # Verify on Etherscan
 npx hardhat run scripts/verify.js --network sepolia
 
-# Interact with deployed contract
+# Interact with contract
 npx hardhat run scripts/interact.js --network sepolia
+
+# Run full simulation
+npx hardhat run scripts/simulate.js --network sepolia
 ```
 
-#### Deploy to Mainnet
+## 🛡️ Privacy & Security Architecture
 
-**WARNING: This uses real ETH!**
-
-```bash
-npx hardhat run scripts/deploy.js --network mainnet
-npx hardhat run scripts/verify.js --network mainnet
-```
-
-### Available Scripts
-
-| Script | Description |
-|--------|-------------|
-| `scripts/deploy.js` | Complete deployment with gas estimation and verification |
-| `scripts/verify.js` | Verify contracts on Etherscan |
-| `scripts/interact.js` | View contract info and call functions |
-| `scripts/simulate.js` | Run full betting scenario simulation |
-
-### Deployment Information
-
-Deployed contracts are saved in `deployments/`:
-- `{network}-latest.json` - Latest deployment data
-- `{network}-{timestamp}.json` - Historical deployments
-- `{network}-verification.json` - Verification status
-
-Example deployment output:
-```bash
-==================================================
-Confidential Sports Betting Platform - Deployment
-==================================================
-
-Deployer address: 0x...
-Network: sepolia
-Chain ID: 11155111
-
-Deploying Contracts...
-✅ ConfidentialSportsBetting deployed to: 0x...
-
-Deployment Summary
-Network: sepolia
-ConfidentialSportsBetting: 0x...
-Etherscan: https://sepolia.etherscan.io/address/0x...
-```
-
-For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md)
-
-## 📡 Network Information
-
-### Sepolia Testnet
-- **Chain ID**: 11155111
-- **RPC URL**: https://sepolia.infura.io/v3/YOUR_PROJECT_ID
-- **Block Explorer**: https://sepolia.etherscan.io
-- **Faucet**: https://sepoliafaucet.com
-
-### Ethereum Mainnet
-- **Chain ID**: 1
-- **RPC URL**: https://mainnet.infura.io/v3/YOUR_PROJECT_ID
-- **Block Explorer**: https://etherscan.io
-
-## 🎬 Demo
-
-**Live Demo**: [https://confidential-sports-betting.vercel.app/](https://confidential-sports-betting.vercel.app/)
-
-### Video Demonstration
-
-[Watch Demo Video](ConfidentialSportsBetting.mp4) - See the platform in action with live betting scenarios
-
-### On-Chain Transactions
-
-All transactions are verifiable on the Sepolia Testnet block explorer while maintaining user privacy through FHE encryption.
-
-Example Transactions:
-- Encrypted bet placement
-- Match creation with encrypted parameters
-- Confidential reward distribution
-- Privacy-preserving payout claims
-
-## 🛡️ Privacy Architecture
-
-### FHE Implementation
-
-The platform uses **fhEVM** (Fully Homomorphic Encryption for EVM) to enable:
+### FHE Privacy Guarantees
 
 ```
-User Bet (Plaintext) → Encryption → FHE Contract (Encrypted) → Processing → Results (Encrypted) → Decryption (Winner Only) → Payout
+┌─────────────────────────────────────────────────┐
+│           User Privacy Protection               │
+├─────────────────────────────────────────────────┤
+│ • Bet predictions encrypted with FHE            │
+│ • Amounts hidden on-chain                       │
+│ • Pool calculations on encrypted data           │
+│ • Results decryptable only by winners           │
+└─────────────────────────────────────────────────┘
+         ↓
+┌─────────────────────────────────────────────────┐
+│           Smart Contract Layer                  │
+├─────────────────────────────────────────────────┤
+│ • Process encrypted values                      │
+│ • Never decrypt sensitive data                  │
+│ • Calculate payouts on encrypted pools          │
+│ • Verify results without exposing bets          │
+└─────────────────────────────────────────────────┘
+         ↓
+┌─────────────────────────────────────────────────┐
+│           Blockchain Layer                      │
+├─────────────────────────────────────────────────┤
+│ • Store encrypted data on-chain                 │
+│ • Immutable encrypted records                   │
+│ • Verifiable without revealing content          │
+│ • Transparent yet private                       │
+└─────────────────────────────────────────────────┘
 ```
 
-### Privacy Guarantees
+### Security Features
 
-- **Bet Amounts**: Encrypted on-chain, only known to the bettor
-- **Predictions**: Completely confidential until match settlement
-- **Pool Sizes**: Aggregated in encrypted form
-- **User Balances**: Private account tracking
-- **Win/Loss Records**: Encrypted historical data
+- **Non-custodial**: Users maintain full control of funds
+- **Encrypted State**: All sensitive data stored encrypted
+- **Access Control**: Role-based permissions for operators
+- **Oracle Verification**: Decentralized result verification
+- **Automated Payouts**: Trustless smart contract distribution
+- **Reentrancy Protection**: Secure against common attacks
+
+### Privacy Benefits
+
+1. **Bet Privacy**: Predictions encrypted until settlement
+2. **Amount Confidentiality**: Bet sizes remain hidden
+3. **Strategy Protection**: Betting patterns not exposed
+4. **Anonymous Participation**: No identity disclosure
+5. **Regulatory Compliance**: Enhanced privacy standards
 
 ## 💎 Technology Stack
 
-- **Smart Contracts**: Solidity 0.8.24 with fhEVM extensions
-- **Development Framework**: Hardhat
-- **Encryption**: TFHE (Torus Fully Homomorphic Encryption)
-- **Frontend**: HTML5, JavaScript, Ethers.js
+- **Smart Contracts**: Solidity 0.8.24 + fhEVM
+- **FHE Library**: TFHE (Torus Fully Homomorphic Encryption)
+- **Development**: Hardhat Framework
+- **Frontend**: React, TypeScript, Ethers.js
 - **Blockchain**: Ethereum Sepolia Testnet
-- **Oracle**: Decentralized sports data feeds
-- **Testing**: Hardhat Test Suite with Mocha/Chai
+- **Testing**: Mocha, Chai, Hardhat Test Suite
+- **Deployment**: Vercel (Frontend), Ethereum (Contracts)
 
-## 🌐 Live Application
+## 📊 Project Structure
 
-**Website**: [https://confidential-sports-betting.vercel.app/](https://confidential-sports-betting.vercel.app/)
+```
+FHESportsBetting/
+├── contracts/
+│   ├── ConfidentialSportsBetting.sol    # Main FHE betting contract
+│   └── security/                        # Security modules
+├── scripts/
+│   ├── deploy.js                        # Deployment script
+│   ├── verify.js                        # Contract verification
+│   ├── interact.js                      # Contract interaction
+│   └── simulate.js                      # Full simulation
+├── test/
+│   ├── ConfidentialSportsBetting.test.js   # Test suite (53 tests)
+│   └── gas-benchmark.test.js            # Gas optimization tests
+├── docs/
+│   ├── DEPLOYMENT.md                    # Deployment guide
+│   ├── TESTING.md                       # Testing documentation
+│   └── SECURITY.md                      # Security guide
+├── hardhat.config.js                    # Hardhat configuration
+├── package.json                         # Dependencies
+└── demo.mp4                             # Video demonstration
+```
 
-**Repository**: [https://github.com/BrockKunde/ConfidentialSportsBetting](https://github.com/BrockKunde/ConfidentialSportsBetting)
+## 🔧 Available Scripts
 
-## 🔧 Features Overview
-
-### For Bettors
-- Connect wallet and place encrypted bets
-- View active matches and betting options
-- Track personal betting history (encrypted)
-- Claim winnings with privacy protection
-- Earn loyalty rewards
-
-### For Operators
-- Create encrypted betting markets
-- Set confidential odds and limits
-- Submit match results via oracle
-- Manage platform parameters
-
-### Privacy Dashboard
-- Encrypted bet tracking
-- Confidential statistics
-- Private reward tiers
-- Anonymous leaderboards
-
-## 🎮 User Interface
-
-The platform features an intuitive interface with:
-- Real-time match listings
-- Multiple bet type options
-- Encrypted balance display
-- Privacy-preserving transaction history
-- Responsive design for all devices
-
-## 🔒 Security Features
-
-- **Non-custodial**: Users maintain full control of funds
-- **Encrypted State**: All sensitive data stored in encrypted form
-- **Verifiable Results**: Match outcomes verified on-chain
-- **Automated Payouts**: Smart contract-based distribution
-- **Access Control**: Role-based permissions for operators
-
-## 📊 Statistics & Analytics
-
-Users can view their betting performance through encrypted analytics:
-- Total bets placed (encrypted count)
-- Win rate (privacy-preserving calculation)
-- Reward tier status
-- Historical performance trends
-
-All statistics are calculated on encrypted data, ensuring complete privacy.
+| Script | Command | Description |
+|--------|---------|-------------|
+| Compile | `npm run compile` | Compile smart contracts |
+| Test | `npm test` | Run test suite |
+| Deploy | `npm run deploy` | Deploy to Sepolia |
+| Verify | `npm run verify` | Verify on Etherscan |
+| Simulate | `npm run simulate` | Run betting simulation |
+| Coverage | `npm run coverage` | Generate test coverage |
+| Lint | `npm run lint` | Check code quality |
 
 ## 🌟 Use Cases
 
-1. **Private Sports Wagering**: Bet on your favorite teams without revealing strategies
-2. **Confidential Pool Betting**: Join pools without exposing bet sizes
-3. **Anonymous High-Roller Betting**: Large wagers with complete privacy
-4. **Privacy-First Fantasy Sports**: Encrypted fantasy league betting
-5. **Institutional Betting**: Corporate betting with confidentiality
+### Individual Bettors
+- **Private Wagering**: Bet without revealing strategies
+- **Anonymous Participation**: No identity exposure
+- **Protected Balances**: Encrypted account tracking
+- **Confidential History**: Private betting records
 
-## 🔮 Future Enhancements
+### Professional Bettors
+- **Strategy Protection**: Hide betting patterns
+- **Large Bets**: Privacy for high-value wagers
+- **Performance Tracking**: Encrypted statistics
+- **Institutional Privacy**: Corporate betting confidentiality
 
-- Multi-sport expansion
-- Live in-game betting with FHE
-- Peer-to-peer encrypted betting markets
-- Advanced bet types (parlays, teasers)
-- Mobile application
-- Cross-chain privacy bridges
+### Platform Operators
+- **Compliance**: Enhanced privacy regulations
+- **User Trust**: Guaranteed confidentiality
+- **Fair Markets**: Prevent bet manipulation
+- **Transparent Operations**: Verifiable yet private
 
-## 📜 License
+## 📈 Future Roadmap
 
-MIT License - Open source and privacy-focused
+- [ ] Multi-sport expansion (Football, Basketball, Baseball)
+- [ ] Live in-game betting with real-time FHE
+- [ ] Peer-to-peer encrypted betting markets
+- [ ] Advanced bet types (Parlays, Teasers, Props)
+- [ ] Mobile application (iOS/Android)
+- [ ] Cross-chain FHE bridges
+- [ ] Decentralized oracle network
+- [ ] Layer 2 scaling solutions
 
 ## 🤝 Contributing
 
-This is an open-source privacy project. Contributions are welcome to enhance the platform's privacy features and user experience.
+Contributions are welcome! This is an open-source privacy project.
+
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open Pull Request
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+## 📜 License
+
+MIT License - See [LICENSE](LICENSE) for details.
+
+This is an open-source privacy-focused project.
 
 ## ⚠️ Disclaimer
 
-This platform is for demonstration purposes on testnet. Always bet responsibly and comply with local gambling regulations.
+This platform is deployed on Ethereum Sepolia testnet for demonstration and testing purposes. No real money is involved. Always bet responsibly and comply with local gambling regulations.
+
+## 📞 Support & Community
+
+- **GitHub Issues**: [Report bugs or request features](https://github.com/BrockKunde/FHESportsBetting/issues)
+- **Documentation**: See [docs/](./docs/) folder
+- **Live Demo**: [https://fhe-sports-betting.vercel.app/](https://fhe-sports-betting.vercel.app/)
+
+## 🏅 Acknowledgments
+
+Built with:
+- **fhEVM**: Fully Homomorphic Encryption for Ethereum
+- **TFHE**: Torus Fully Homomorphic Encryption library
+- **Hardhat**: Ethereum development environment
+- **Ethers.js**: Ethereum library for Web3
+- **Zama**: FHE technology provider
+
+---
+
+## 🎯 Key Highlights
+
+✅ **First FHE-based sports betting platform**
+✅ **Complete on-chain privacy with smart contracts**
+✅ **Hidden predictions until match settlement**
+✅ **Trustless and verifiable results**
+✅ **Open-source and auditable code**
 
 ---
 
 **Built with Privacy. Powered by FHE. Secured by Blockchain.**
 
-*Experience the future of confidential sports betting at [https://confidential-sports-betting.vercel.app/](https://confidential-sports-betting.vercel.app/)*
+**Experience the future of confidential sports betting**: [https://fhe-sports-betting.vercel.app/](https://fhe-sports-betting.vercel.app/)
+
+**Source Code**: [https://github.com/BrockKunde/FHESportsBetting](https://github.com/BrockKunde/FHESportsBetting)
