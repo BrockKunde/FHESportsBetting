@@ -136,7 +136,7 @@ struct MatchBetting {
 
 **📥 Download Required**: The demo video (`demo.mp4`) must be downloaded to view as it cannot be played directly in browsers.
 
-**[Download demo.mp4](./demo.mp4)**
+**[Download demo.mp4]**
 
 The video demonstrates:
 1. Connecting wallet to the platform
