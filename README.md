@@ -10,7 +10,8 @@ A privacy-preserving sports betting platform powered by Fully Homomorphic Encryp
 
 - **Live Application**: [https://fhe-sports-betting.vercel.app/](https://fhe-sports-betting.vercel.app/)
 - **GitHub Repository**: [https://github.com/BrockKunde/FHESportsBetting](https://github.com/BrockKunde/FHESportsBetting)
-- **Contract on Etherscan**: [0xB539bf7D5960087A2742B8Fd2DceA8aE86E6E516](https://sepolia.etherscan.io/address/0xB539bf7D5960087A2742B8Fd2DceA8aE86E6E516)
+- **Contract on Etherscan**: [0x1846d67Dcf544B374D59F6d9a9adE4e37719D57A](https://sepolia.etherscan.io/address/0x1846d67Dcf544B374D59F6d9a9adE4e37719D57A
+)
 
 ## 🔐 Core Concept: FHE Contract Confidential Sports Betting
 
@@ -94,11 +95,13 @@ This is a **hidden privacy sports prediction platform** (机密体育竞猜平�
 
 ### Deployed Contract
 
-**Contract Address**: `0xB539bf7D5960087A2742B8Fd2DceA8aE86E6E516`
+**Contract Address**: `0x1846d67Dcf544B374D59F6d9a9adE4e37719D57A
+`
 
 **Network**: Ethereum Sepolia Testnet
 
-**View on Etherscan**: [Contract Link](https://sepolia.etherscan.io/address/0xB539bf7D5960087A2742B8Fd2DceA8aE86E6E516)
+**View on Etherscan**: [Contract Link](https://sepolia.etherscan.io/address/0x1846d67Dcf544B374D59F6d9a9adE4e37719D57A
+)
 
 ### FHE Contract Components
 
