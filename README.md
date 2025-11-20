@@ -162,6 +162,18 @@ Features:
 
 ## 🚀 Quick Start
 
+This repository contains multiple implementations. Choose based on your needs:
+
+### Implementation Comparison
+
+| Feature | Main Implementation | sports-betting/ | fhevm-react-template/ |
+|---------|-------------------|-----------------|----------------------|
+| **Framework** | React + TypeScript | Vanilla JS/HTML | Multiple (React, Next.js, Vue) |
+| **Complexity** | Production-ready | Simple & Educational | SDK + Examples |
+| **Use Case** | Full betting platform | Learning/Demo | SDK Development |
+| **Dependencies** | Full stack | Minimal | Modular SDK |
+| **Best For** | Production deployment | Quick start | Framework integration |
+
 ### Prerequisites
 
 - Node.js v18 or higher
@@ -169,7 +181,9 @@ Features:
 - MetaMask or compatible Web3 wallet
 - Sepolia testnet ETH ([Get from faucet](https://sepoliafaucet.com))
 
-### Installation
+### Installation Options
+
+#### Option 1: Main Implementation (Recommended for Production)
 
 ```bash
 # Clone the repository
@@ -182,6 +196,39 @@ npm install
 # Configure environment
 cp .env.example .env
 # Edit .env with your settings
+```
+
+#### Option 2: Alternative Implementation (Quick Start)
+
+```bash
+# Navigate to sports-betting directory
+cd sports-betting
+
+# Install dependencies (minimal)
+npm install
+
+# Run locally
+npm run dev
+# or simply open index.html in a browser
+```
+
+#### Option 3: FHEVM SDK & Examples
+
+```bash
+# Navigate to SDK directory
+cd fhevm-react-template
+
+# Install dependencies
+npm install
+
+# Build SDK
+cd packages/fhevm-sdk
+npm run build
+
+# Run examples
+cd ../../examples/nextjs-showcase
+npm install
+npm run dev
 ```
 
 ### Environment Configuration
@@ -295,6 +342,9 @@ npx hardhat run scripts/simulate.js --network sepolia
 
 ## 💎 Technology Stack
 
+This repository contains multiple implementations of confidential sports betting:
+
+### Main Implementation (Root Directory)
 - **Smart Contracts**: Solidity 0.8.24 + fhEVM
 - **FHE Library**: TFHE (Torus Fully Homomorphic Encryption)
 - **Development**: Hardhat Framework
@@ -302,6 +352,17 @@ npx hardhat run scripts/simulate.js --network sepolia
 - **Blockchain**: Ethereum Sepolia Testnet
 - **Testing**: Mocha, Chai, Hardhat Test Suite
 - **Deployment**: Vercel (Frontend), Ethereum (Contracts)
+- **Contract**: `0x1846d67Dcf544B374D59F6d9a9adE4e37719D57A`
+
+### Alternative Implementation (`sports-betting/`)
+- **Smart Contracts**: Solidity + fhEVM extensions
+- **Encryption**: TFHE (Torus Fully Homomorphic Encryption)
+- **Frontend**: HTML5, JavaScript (Vanilla), Ethers.js v5
+- **Blockchain**: Zama Sepolia Testnet
+- **Architecture**: Lightweight, single-page application
+- **Contract**: `0xB539bf7D5960087A2742B8Fd2DceA8aE86E6E516`
+- **Features**: Simplified UI, direct fhEVM integration
+- **Use Case**: Educational reference, minimal dependencies
 
 ## 📊 Project Structure
 
@@ -322,6 +383,20 @@ FHESportsBetting/
 │   ├── DEPLOYMENT.md                    # Deployment guide
 │   ├── TESTING.md                       # Testing documentation
 │   └── SECURITY.md                      # Security guide
+├── sports-betting/                      # Alternative Implementation
+│   ├── app/                             # Next.js application
+│   ├── contracts/                       # Smart contracts
+│   ├── scripts/                         # Deployment scripts
+│   ├── public/                          # Static assets
+│   ├── index.html                       # Main HTML entry
+│   ├── styles.css                       # Styling
+│   ├── hardhat.config.js                # Hardhat config
+│   └── README.md                        # Implementation docs
+├── fhevm-react-template/                # FHEVM SDK & Examples
+│   ├── packages/fhevm-sdk/              # Universal FHEVM SDK
+│   ├── examples/                        # Framework examples
+│   ├── templates/                       # Template references
+│   └── docs/                            # SDK documentation
 ├── hardhat.config.js                    # Hardhat configuration
 ├── package.json                         # Dependencies
 └── demo.mp4                             # Video demonstration
@@ -329,15 +404,33 @@ FHESportsBetting/
 
 ## 🔧 Available Scripts
 
+### Main Implementation
+
 | Script | Command | Description |
 |--------|---------|-------------|
 | Compile | `npm run compile` | Compile smart contracts |
-| Test | `npm test` | Run test suite |
+| Test | `npm test` | Run test suite (53 tests) |
 | Deploy | `npm run deploy` | Deploy to Sepolia |
 | Verify | `npm run verify` | Verify on Etherscan |
 | Simulate | `npm run simulate` | Run betting simulation |
 | Coverage | `npm run coverage` | Generate test coverage |
 | Lint | `npm run lint` | Check code quality |
+
+### sports-betting/ Implementation
+
+| Script | Command | Description |
+|--------|---------|-------------|
+| Start | `npm run dev` or open `index.html` | Run local development server |
+| Install | `npm install` | Install dependencies (ethers.js) |
+
+### fhevm-react-template/ Implementation
+
+| Script | Command | Description |
+|--------|---------|-------------|
+| Build SDK | `cd packages/fhevm-sdk && npm run build` | Build FHEVM SDK |
+| Next.js Example | `cd examples/nextjs-showcase && npm run dev` | Run Next.js example |
+| React Example | `cd examples/react-example && npm run dev` | Run React + Vite example |
+| Sports Betting | `cd examples/sports-betting && npm run dev` | Run betting example |
 
 ## 🌟 Use Cases
 
@@ -359,6 +452,49 @@ FHESportsBetting/
 - **Fair Markets**: Prevent bet manipulation
 - **Transparent Operations**: Verifiable yet private
 
+## 🎯 Which Implementation Should You Use?
+
+### Use Main Implementation If:
+- ✅ Building a production betting platform
+- ✅ Need full-featured React + TypeScript application
+- ✅ Want comprehensive testing and security
+- ✅ Require advanced betting features and analytics
+- ✅ Planning to scale and customize extensively
+
+### Use sports-betting/ If:
+- ✅ Learning FHE and fhEVM concepts
+- ✅ Need a quick demo or prototype
+- ✅ Prefer minimal dependencies
+- ✅ Want simple, understandable code
+- ✅ Building educational content or tutorials
+
+### Use fhevm-react-template/ If:
+- ✅ Developing your own FHE dApp
+- ✅ Need a reusable SDK for FHE operations
+- ✅ Working with multiple frameworks (React, Next.js, Vue)
+- ✅ Want modular, framework-agnostic code
+- ✅ Building SDK integrations
+
+## 🌟 Key Differences
+
+### Main Implementation
+- **Live Demo**: [https://fhe-sports-betting.vercel.app/](https://fhe-sports-betting.vercel.app/)
+- **Contract**: `0x1846d67Dcf544B374D59F6d9a9adE4e37719D57A` (Ethereum Sepolia)
+- **Features**: Complete betting platform with advanced features
+- **Tech**: React, TypeScript, Hardhat, comprehensive testing
+
+### sports-betting/ Directory
+- **Live Demo**: [https://confidential-sports-betting.vercel.app/](https://confidential-sports-betting.vercel.app/)
+- **Contract**: `0xB539bf7D5960087A2742B8Fd2DceA8aE86E6E516` (Zama Sepolia)
+- **Features**: Simplified betting with core FHE functionality
+- **Tech**: Vanilla JavaScript, HTML5, minimal dependencies
+
+### fhevm-react-template/ Directory
+- **Purpose**: Universal FHEVM SDK and framework examples
+- **Structure**: Modular SDK with multiple example implementations
+- **Features**: Framework-agnostic core, React hooks, templates
+- **Tech**: TypeScript, React, Next.js, Vue support
+
 ## 📈 Future Roadmap
 
 - [ ] Multi-sport expansion (Football, Basketball, Baseball)
@@ -369,6 +505,7 @@ FHESportsBetting/
 - [ ] Cross-chain FHE bridges
 - [ ] Decentralized oracle network
 - [ ] Layer 2 scaling solutions
+- [ ] Unified SDK across all implementations
 
 ## 🤝 Contributing
 
@@ -419,8 +556,49 @@ Built with:
 
 ---
 
+## 📚 Quick Reference Guide
+
+### Three Implementations, One Vision
+
+This repository showcases confidential sports betting through three complementary approaches:
+
+1. **Main Implementation** (Root) - Production-grade platform
+   - 🌐 Live: [https://fhe-sports-betting.vercel.app/](https://fhe-sports-betting.vercel.app/)
+   - 📜 Contract: `0x1846d67Dcf544B374D59F6d9a9adE4e37719D57A`
+   - 🔧 Tech: React, TypeScript, Hardhat
+   - 🎯 Best for: Production deployment
+
+2. **sports-betting/** - Lightweight alternative
+   - 🌐 Live: [https://confidential-sports-betting.vercel.app/](https://confidential-sports-betting.vercel.app/)
+   - 📜 Contract: `0xB539bf7D5960087A2742B8Fd2DceA8aE86E6E516`
+   - 🔧 Tech: Vanilla JavaScript, HTML5
+   - 🎯 Best for: Learning and quick demos
+
+3. **fhevm-react-template/** - Universal SDK
+   - 📦 Package: `@fhevm/sdk`
+   - 🔧 Tech: Framework-agnostic SDK with examples
+   - 🎯 Best for: Building custom FHE dApps
+
+### Choose Your Path
+
+```bash
+# Quick start with main implementation
+git clone https://github.com/BrockKunde/FHESportsBetting.git
+cd FHESportsBetting && npm install && npm test
+
+# Or explore the lightweight version
+cd sports-betting && open index.html
+
+# Or build with the SDK
+cd fhevm-react-template && cd packages/fhevm-sdk && npm run build
+```
+
+---
+
 **Built with Privacy. Powered by FHE. Secured by Blockchain.**
 
-**Experience the future of confidential sports betting**: [https://fhe-sports-betting.vercel.app/](https://fhe-sports-betting.vercel.app/)
+**Experience the future of confidential sports betting**:
+- Main Platform: [https://fhe-sports-betting.vercel.app/](https://fhe-sports-betting.vercel.app/)
+- Alternative: [https://confidential-sports-betting.vercel.app/](https://confidential-sports-betting.vercel.app/)
 
 **Source Code**: [https://github.com/BrockKunde/FHESportsBetting](https://github.com/BrockKunde/FHESportsBetting)
