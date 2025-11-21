@@ -39,7 +39,7 @@ Traditional Betting:          FHE Confidential Betting:
 
 ## 🎯 Core Concept: Hidden Privacy Sports Prediction Platform
 
-This is a **hidden privacy sports prediction platform** (机密体育竞猜平台) where:
+This is a **hidden privacy sports prediction platform**  where:
 
 ### Privacy Features
 
