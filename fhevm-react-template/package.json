@@ -1,0 +1,48 @@
+{
+  "name": "fhevm-react-template",
+  "version": "1.0.0",
+  "description": "Universal SDK and framework integrations for building confidential dApps with FHEVM",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "dev": "npm run dev --workspace=examples/nextjs-showcase",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "type-check": "npm run type-check --workspaces --if-present",
+    "clean": "npm run clean --workspaces --if-present && rm -rf node_modules"
+  },
+  "keywords": [
+    "fhevm",
+    "fhe",
+    "fully homomorphic encryption",
+    "confidential computing",
+    "privacy",
+    "ethereum",
+    "web3",
+    "blockchain",
+    "react",
+    "sdk"
+  ],
+  "author": "Zama",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zama-ai/fhevm-react-template"
+  },
+  "bugs": {
+    "url": "https://github.com/zama-ai/fhevm/issues"
+  },
+  "homepage": "https://github.com/zama-ai/fhevm-react-template#readme",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0"
+  }
+}
