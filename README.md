@@ -13,6 +13,29 @@ A privacy-preserving sports betting platform powered by Fully Homomorphic Encryp
 - **Contract on Etherscan**: [0x1846d67Dcf544B374D59F6d9a9adE4e37719D57A](https://sepolia.etherscan.io/address/0x1846d67Dcf544B374D59F6d9a9adE4e37719D57A
 )
 
+## 🎬 Demo & Tutorial
+
+### Video Demonstration
+
+**📥 Download Required**: The demo video (`demo.mp4`) must be downloaded to view as it cannot be played directly in browsers.
+
+**[Download demo.mp4]**
+
+The video demonstrates:
+1. Connecting wallet to the platform
+2. Viewing available matches and betting options
+3. Placing an encrypted bet with FHE
+4. Monitoring encrypted betting pools
+5. Claiming winnings after match settlement
+6. Complete privacy workflow from bet to payout
+
+Features:
+- Connect MetaMask wallet
+- View active sports matches
+- Place confidential bets
+- Monitor encrypted pools
+- Claim winnings privately
+
 ## 🔐 Core Concept: FHE Contract Confidential Sports Betting
 
 This platform revolutionizes sports betting by implementing **Fully Homomorphic Encryption (FHE)** directly in smart contracts, creating a **hidden privacy sports prediction platform** where all sensitive data remains encrypted on-chain.
@@ -133,32 +156,7 @@ struct MatchBetting {
 - `createMatch()` - Create new betting markets
 - `getMatchStatus()` - View match and pool information
 
-## 🎬 Demo & Tutorial
 
-### Video Demonstration
-
-**📥 Download Required**: The demo video (`demo.mp4`) must be downloaded to view as it cannot be played directly in browsers.
-
-**[Download demo.mp4]**
-
-The video demonstrates:
-1. Connecting wallet to the platform
-2. Viewing available matches and betting options
-3. Placing an encrypted bet with FHE
-4. Monitoring encrypted betting pools
-5. Claiming winnings after match settlement
-6. Complete privacy workflow from bet to payout
-
-### Live Platform
-
-**Experience it live**: [https://fhe-sports-betting.vercel.app/](https://fhe-sports-betting.vercel.app/)
-
-Features:
-- Connect MetaMask wallet
-- View active sports matches
-- Place confidential bets
-- Monitor encrypted pools
-- Claim winnings privately
 
 ## 🚀 Quick Start
 
